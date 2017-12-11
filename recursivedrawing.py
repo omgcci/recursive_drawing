@@ -8,9 +8,9 @@ import sys
 
 def recursive_draw(x, y, width, height, count):
     pygame.draw.line(DS, White,
-                     [x + width*.25, height // 2 + y],
-                     [x + width*.75, height // 2 + y],
-                     3)
+                     [x + width*.20, height // 3 + y],
+                     [x + width*.90, height // 3 + y],
+                     1)
     pygame.draw.line(DS, Black,
                      [x + width * .25, (height * .5) // 2 + y],
                      [x + width * .25,  (height * 1.5) // 2 + y],
@@ -19,6 +19,14 @@ def recursive_draw(x, y, width, height, count):
                      [x + width * .75, (height * .5) // 2 + y],
                      [x + width * .75, (height * 1.5) // 2 + y],
                      1)
+    pygame.draw.line(DS, Purple,
+                     [x - width // 3, (height + (y*.7))],
+                     [x - width // 2, (height + (y*.7))],
+                     1)
+    pygame.draw.line(DS, Red,
+                     [x + width * .9, (height + (y*.15))],
+                     [x + width * .3, (height - (y*.7))],
+                     )
  
     if count > 0:
         count -= 1
@@ -60,8 +68,8 @@ while not qq:
             pygame.display.quit
             pygame.quit()
             sys.exit()
-    DS.fill(Purple)
-    recursive_draw(0, 0, 1900, 1060, 10)
+    DS.fill(White)
+    recursive_draw(20, 20, 1900, 40, 10)
     pygame.display.flip()
     CLOCK.tick(FPS)
 
